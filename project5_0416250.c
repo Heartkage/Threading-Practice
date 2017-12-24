@@ -106,7 +106,6 @@ void *threadRunner(void *arg){
 
         sched_yield(); 
         //sleep(1);
-        //sched_yield();
         if((value==2) || (value==3))
             break;
 
@@ -124,6 +123,8 @@ void *threadRunner(void *arg){
         print_info(false, current_customer, value);
 
         pthread_mutex_unlock(&mutex);
+        sched_yield();
+
     }
     
     finish_count++;
@@ -309,7 +310,7 @@ void print_info(bool first, int customer, int value){
     }
     
     //print system
-    printf("current state\n");
+    printf("\ncurrent state\n");
     printf("available\n");
     printf("resource    %d  %d  %d\n", available[0], available[1], available[2]);
     printf("            maximum    allocation   need\n");
