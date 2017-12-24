@@ -104,8 +104,8 @@ void *threadRunner(void *arg){
         pthread_mutex_unlock(&mutex);
 
 
-        
-        sleep(1);
+        sched_yield(); 
+        //sleep(1);
         //sched_yield();
         if((value==2) || (value==3))
             break;
